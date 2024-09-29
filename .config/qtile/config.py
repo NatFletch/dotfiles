@@ -39,6 +39,7 @@ mod = "mod4"              # Sets mod key to SUPER/WINDOWS
 myTerm = "alacritty"      # My terminal of choice
 myBrowser = "brave"       # My browser of choice
 myEmacs = "emacsclient -c -a 'emacs' " # The space at the end is IMPORTANT!
+myFileManager = "thunar"
 
 # Allows you to input a name when adding treetab section.
 @lazy.layout.function
@@ -66,6 +67,7 @@ keys = [
     # The essentials
     Key([mod], "Return", lazy.spawn(myTerm), desc="Terminal"),
     Key([mod], "e", lazy.spawn(myBrowser), desc='Web browser'),
+    Key([mod, "shift"], "e", lazy.spawn(myFileManager), desc="Opens file manager"),
     Key([mod], "b", lazy.hide_show_bar(position='all'), desc="Toggles the bar to show/hide"),
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
