@@ -62,6 +62,15 @@ def maximize_by_switching_layout(qtile):
     elif current_layout_name == 'max':
         qtile.current_group.layout = 'monadtall'
 
+# Hide the top bar when in max layout
+@hook.subscribe.layout_change
+def hide_bar_on_max(layout, group):
+    if layout.name == "max":
+        group.screen.top.show(False)
+    else:
+        group.screen.top.show(True)
+    group.screen.draw()
+
 keys = [
     # The essentials
     Key([mod], "Return", lazy.spawn(myTerm), desc="Terminal"),
