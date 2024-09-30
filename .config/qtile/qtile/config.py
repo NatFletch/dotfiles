@@ -80,7 +80,8 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
+    Key([mod], "r", lazy.spawn("rofi -show run"), desc="Spawn a command using a prompt widget"),
+    Key([mod, "shift"], "Return", lazy.spawn("rofi -show drun"), desc="App launcher"),
     Key([mod], "q", lazy.spawn("killall qtile"), desc="Logs out of qtile"),    
     # Switch between windows
     # Some layouts like 'monadtall' only need to use j/k to move
