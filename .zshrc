@@ -5,6 +5,7 @@ fastfetch
 eval "$(starship init zsh)"
 
 # Aliases
+alias sudo="nocorrect sudo"
+alias vim="nvim"
 alias qtile-conf="nvim ~/.config/qtile/config.py"
-
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+alias nix-conf="sudo nvim /etc/nixos/configuration.nix"
