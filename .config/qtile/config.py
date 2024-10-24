@@ -65,13 +65,14 @@ def maximize_by_switching_layout(qtile):
 keys = [
     # The essentials
     Key([mod], "Return", lazy.spawn(myTerm), desc="Terminal"),
-    Key([mod], "e", lazy.spawn(myBrowser), desc='Web browser'),
-    Key([mod, "shift"], "e", lazy.spawn(myFileManager), desc="Opens file manager"),
+    Key([mod, "Shift"], "Return", lazy.spawn("rofi -show run"), desc="Opens a command run prompt"),
+    Key([mod], "v", lazy.spawn(myBrowser), desc='Web browser'),
+    Key([mod], "e", lazy.spawn(myFileManager), desc="Opens file manager"),
     Key([mod], "b", lazy.hide_show_bar(position='all'), desc="Toggles the bar to show/hide"),
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
+    Key([mod], "r", lazy.spawn("rofi -show drun -show-icons"), desc="Spawn a command using a prompt widget"),
     Key([mod], "q", lazy.spawn("killall qtile"), desc="Logs out of qtile"),    
     # Switch between windows
     # Some layouts like 'monadtall' only need to use j/k to move
@@ -471,4 +472,4 @@ wl_input_rules = None
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = "Qtile"

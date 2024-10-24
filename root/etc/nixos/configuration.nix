@@ -11,6 +11,7 @@
     ];
 
   # GRUB
+  boot.kernelParams = ["video=1920x1080"];
   boot.loader = {
     grub = {
       enable = true;
@@ -35,12 +36,15 @@
     openssh.enable = true;
     
     # Install SDDM
-    displayManager.sddm.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      theme = "chili";
+    };
     
     xserver = {
       # Enable x11
       enable = true;
-      
+      resolutions = [{x = 1920; y = 1080;}];      
       # Install Qtile and needed python packages for my config
       windowManager.qtile = {
         enable = true;
@@ -73,9 +77,15 @@
       rofi
       brave
       nitrogen
+      lxappearance
       zsh
       fira-code
+      ubuntu_font_family
       starship
+      gh
+      emacs
+      wineWowPackages.stable
+      winetricks
     ];
   };
 
@@ -98,9 +108,18 @@
     unzip
     btop
     xorg.xrandr
+    xdg-utils
+    sddm-chili-theme
+    cmake
+    libtool
   ];
   
-  fonts.packages = [pkgs.fira-code];
+  security.sudo.wheelNeedsPassword = false;
+
+  fonts.packages = [
+      pkgs.fira-code
+      pkgs.ubuntu_font_family
+  ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -108,7 +127,7 @@
     enable = true;
     enableSSHSupport = true;
   };
-
+  
   # List services that you want to enable:
 
   # Open ports in the firewall.
