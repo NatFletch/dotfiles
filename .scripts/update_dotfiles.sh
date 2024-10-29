@@ -6,6 +6,8 @@ echo "Copying configuration.nix"
 sudo cp /etc/nixos/configuration.nix ~/Documents/dotfiles/root/etc/nixos/configuration.nix
 echo "Copying alacritty configuration"
 cp -r ~/.config/alacritty ~/Documents/dotfiles/.config/
+echo "Copying emacs config"
+cp -r ~/.config/emacs ~/Documents/dotfiles/.config/
 echo "Copying nvim configuration"
 cp -r ~/.config/nvim ~/Documents/dotfiles/.config
 echo "Copying qtile configuration"
