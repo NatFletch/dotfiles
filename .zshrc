@@ -1,7 +1,7 @@
 # Environment Variables
 
 # Startup commands
-fastfetch
+colorscript random
 eval "$(starship init zsh)"
 
 # Aliases
