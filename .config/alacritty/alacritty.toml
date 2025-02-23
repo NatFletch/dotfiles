@@ -1,10 +1,6 @@
 [font]
 normal = {family = "FiraCode"}
 
-[window]
-dimensions = {columns = 120, lines=50}
-opacity = 0.5
-
 # Default colors
 [colors.primary]
 background = '#232627'

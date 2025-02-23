@@ -2,6 +2,7 @@
 
 # Startup commands
 colorscript random
+fastfetch
 eval "$(starship init zsh)"
 
 # Aliases
