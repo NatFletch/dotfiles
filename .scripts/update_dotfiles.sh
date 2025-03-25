@@ -14,3 +14,5 @@ echo "Copying rofi themes"
 cp -r ~/.local/share/rofi/themes ~/Documents/dotfiles/.local/share/rofi/
 echo "Copying .scripts"
 cp -r ~/.scripts ~/Documents/dotfiles
+echo "Copying kitty configuration"
+cp -r ~/.config/kitty ~/Documents/dotfiles/.config
