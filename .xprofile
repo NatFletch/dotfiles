@@ -1,5 +1,0 @@
-nitrogen --restore
-
-export GTK_THEME="Layan-Dark"
-export GTK2_RC_FILES=/usr/share/themes/Layan-Dark/gtk-2.0/gtkrc
-export PATH="~/.config/emacs/bin:$PATH"

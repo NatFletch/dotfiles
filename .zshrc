@@ -1,53 +1,30 @@
-# Aliases
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Download Znap, if it's not there yet.
+[[ -r ~/.config/znap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/.config/znap
+source ~/.config/znap/znap.zsh  # Start Znap
+
+# Download and install plugins
+znap source zdharma-continuum/fast-syntax-highlighting
+znap source zsh-users/zsh-autosuggestions
+znap source hlissner/zsh-autopair
+znap source romkatv/powerlevel10k
+
 alias home="cd ~/"
 alias desk="cd ~/Desktop"
+alias down="cd ~/Downloads"
 alias docs="cd ~/Documents"
-alias downl="cd ~/Downloads"
-alias musi="cd ~/Music"
-alias pict="cd ~/Pictures"
-alias vide="cd ~/Videos"
+alias pics="cd ~/Pictures"
+alias vids="cd ~/Videos"
+alias conf="cd ~/.config"
+alias prog="cd ~/Documents/programming"
 
-alias update='paru -Syyu --noconfirm && flatpak update -y'
-alias upd_dot="sh ~/.scripts/update_dotfiles.sh"
-
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *.deb)       ar x $1      ;;
-      *.tar.xz)    tar xf $1    ;;
-      *.tar.zst)   unzstd $1    ;;
-      *)           echo ''$1' cannot be extracted via ex()' ;;
-    esac
-  else
-    echo ''$1' is not a valid file'
-  fi
-}
-
-
-# Terminal Prompts
-pyfiglet -s -f small_slant $(fastfetch -s os --format json | jq -r '.[0].result.name') | lolcat && echo && fastfetch -l none
-
-# Plugins
-plugins=(
-  git
-  zsh-syntax-highlighting
-  fast-syntax-highlighting
-  zsh-autosuggestions
- )
-
-
-ZSH_THEME=gozilla
-
-source /home/nathan/.oh-my-zsh/oh-my-zsh.sh
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
